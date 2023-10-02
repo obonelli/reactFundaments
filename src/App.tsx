@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Login from "./components/Login";
+import PopularMovies from "./components/PopularMovies";
+import "./App.css";
+import logoutIcon from "./logout.png"; // Asegúrate de que la ruta sea correcta
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="App-logo">Dacodes</div>
+        {isLoggedIn && (
+          <button className="logout-button" onClick={handleLogout}>
+            <img src={logoutIcon} alt="Logout" className="logout-icon" />
+          </button>
+        )}
       </header>
+
+      {isLoggedIn ? (
+        <div className="PopularMovies-container">
+          <PopularMovies />
+        </div>
+      ) : (
+        <div className="Login-container">
+          <Login onLoginSuccess={handleLogin} />
+        </div>
+      )}
     </div>
   );
 }
