@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Link to the project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Project preview](https://reactfundaments-6ycx9m47b-obonelli.vercel.app/).
 
 ## Available Scripts
 
